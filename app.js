@@ -4,13 +4,10 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 
 const app = express();
+app.use(express.static("./public"));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
-
-app.get("/", (req, res) => {
-  res.status(200).send("Task Manager App");
-});
 
 app.use("/api/v1/tasks", tasks);
 
